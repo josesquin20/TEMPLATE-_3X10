@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nueva Respuesta - Ventas y Coordinadores</title>
+    <style type="text/css">
+      /* Estilos para el email en tonos grises */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #2b2b2b;
+        font-family: Arial, sans-serif;
+        color: #d0d0d0;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #3a3a3a;
+        padding: 20px;
+        border: 1px solid #555;
+      }
+      .header {
+        text-align: center;
+        border-bottom: 1px solid #555;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+      .header img {
+        max-width: 250px;
+      }
+      .content h1 {
+        color: #a0a0a0;
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .field {
+        margin-bottom: 20px;
+      }
+      .field label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #a0a0a0;
+      }
+      .field span,
+      .field li {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      ul {
+        padding-left: 20px;
+        margin: 0;
+      }
+      .footer {
+        text-align: center;
+        font-size: 14px;
+        color: #b0b0b0;
+        border-top: 1px solid #555;
+        padding-top: 20px;
+        margin-top: 20px;
+      }
+      a {
+        color: #a0a0a0;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Encabezado con logo -->
+      <div class="header">
+        <img
+          src="https://sefaruniversal.com/wp-content/uploads/2021/01/Logo-de-Sefar-Universal-nuevo-rediseno-pagina-web-Abogados-y-Genealogistas-letras-blancas.png"
+          alt="Logo Sefar Universal"
+        />
+      </div>
+      <!-- Contenido principal -->
+      <div class="content">
+        <h1>Nueva Respuesta Recibida</h1>
+
+        <!-- Datos del remitente -->
+        <div class="field">
+          <label>Nombre y Apellido:</label>
+          <span>{{nombre}} {{apellido}}</span>
+        </div>
+        <div class="field">
+          <label>Correo Electrónico:</label>
+          <span>{{email}}</span>
+        </div>
+
+        <!-- Deseos -->
+        <div class="field">
+          <label>Deseos para mejorar la empresa:</label>
+          <ul>
+            {{#each deseos}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- Problemas -->
+        <div class="field">
+          <label>Principales Problemas identificados:</label>
+          <ul>
+            {{#each problemas}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- Planes de acción y tiempos -->
+        <div class="field">
+          <label>Planes de acción propuestos:</label>
+          <ul>
+            {{#each planes}}
+              <li>
+                <strong>Plan:</strong> {{this}}<br />
+                <strong>Tiempo estimado:</strong> {{lookup ../tiempo @index}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      <!-- Pie del correo -->
+      <div class="footer">
+        <p>
+          Esta respuesta se ha recibido a través del formulario de Ventas y
+          Coordinadores.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
